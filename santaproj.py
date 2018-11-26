@@ -12,7 +12,8 @@ class Santa(App):
         super().__init__()
         
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
-        sleigh= Sprite(sleigh_asset, (300, 200))
+        sleigh= Sprite(sleigh_asset, (350, 100))
+        sleigh.scale=0.3
 
 myapp = Santa()
 
