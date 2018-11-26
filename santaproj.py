@@ -22,6 +22,13 @@ class Santa(App):
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
         sleigh= Sprite(sleigh_asset, (350, 100))
         sleigh.scale=0.3
+        
+        #JingleBells
+        jingleasset = SoundAsset("sounds/Jingle Bells original song.mp3")
+        self.jingle=Sound(Santa.jingleasset)
+        self.jingle.volume=5
+
+        
 
 myapp = Santa()
 
