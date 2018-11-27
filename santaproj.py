@@ -8,11 +8,7 @@ from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, Li
 
 class House1(Sprite):
     
-    h1_asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
-    Frame(227,0,65,125), 4, 'vertical')
-   
-   
-    
+    h1_asset = ImageAsset("images/Christmas_Gingerbread_House_PNG_Clipart.png")
     def __init__(self, position):
         super().__init__(House1.h1_asset, position)
         
@@ -29,16 +25,25 @@ class SantaGame(App):
         bg = Sprite(bg_asset, (0,-200))
         bg.scale=1.4
         
+         #initial positions
+        House1((0,0))
+        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
         sleigh= Sprite(sleigh_asset, (350, 100))
         sleigh.scale=0.3
         
-        #JingleBells
+        #Music:Santa Claus is Coming to Town
         jingle_asset = SoundAsset("sounds/Santa Claus Is Coming To Town.mp3")
         jingle=Sound(jingle_asset)
         jingle.volume=8
         jingle.play()
+        
+       
+    
+    def step(self):
+        for house1 in self.getSpritesbyClass(House1):
+           house1.step()
 
         
 
