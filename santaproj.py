@@ -31,7 +31,7 @@ class SantaGame(App):
         bg.scale=1.4
         
          #initial positions
-        House1((0,0))
+        House1((0,350))
         
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
