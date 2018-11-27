@@ -11,6 +11,11 @@ class House1(Sprite):
     h1_asset = ImageAsset("images/Christmas_Gingerbread_House_PNG_Clipart.png")
     def __init__(self, position):
         super().__init__(House1.h1_asset, position)
+        self.scale=0.3
+        self.vx=1
+    
+    def step(self):
+        self.x+=self.vx
         
 class SantaGame(App):
     
