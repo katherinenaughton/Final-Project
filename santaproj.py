@@ -17,20 +17,34 @@ class House1(Sprite):
     def step(self):
         self.x+=self.vx
         
+
+class Background(Sprite):
+    
+    bg_asset = ImageAsset("images/83581c872f38421.jpg")
+    def __init__(self, position):
+        super().__init__(Background.bg_asset, position)
+        self.scale=1.4
+        self.vx=1
+    
+    def step(self):
+        self.x+=self.vx
+        
 class SantaGame(App):
     
     
     def __init__(self):
         super().__init__()
-        
+        '''
         #background
         black = Color(0, 1)
         noline = LineStyle(0, black)
         bg_asset = ImageAsset("images/83581c872f38421.jpg")
         bg = Sprite(bg_asset, (0,-200))
         bg.scale=1.4
-        
+        '''
          #initial positions
+       
+        Background((0,0))
         House1((0,350))
         
         #sleigh
@@ -48,10 +62,14 @@ class SantaGame(App):
     
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
-           house1.step()
+            house1.step()
+        for bg in self.getSpritesbyClass(Background):
+            bg.step()
 
         
 
 myapp = SantaGame()
 
 myapp.run()
+
+
