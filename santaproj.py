@@ -24,7 +24,7 @@ class Santa(App):
         sleigh.scale=0.3
         
         #JingleBells
-        jingleasset = SoundAsset("sounds/Jingle Bells original song.mp3")
+        jingleasset = SoundAsset("sounds/JSanta Claus Is Coming To Town.mp3")
         self.jingle=Sound(Santa.jingleasset)
         self.jingle.volume=5
 
