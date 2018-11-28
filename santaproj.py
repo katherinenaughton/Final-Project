@@ -28,6 +28,10 @@ class Background(Sprite):
     
     def step(self):
         self.x+=self.vx
+        if self.x>=SantaGame.width:
+            self.x-=self.width*3
+       
+
         
 class SantaGame(App):
     
@@ -47,6 +51,7 @@ class SantaGame(App):
         Background((0,0))
         House1((0,350))
         
+        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
         sleigh= Sprite(sleigh_asset, (350, 100))
@@ -63,13 +68,16 @@ class SantaGame(App):
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
             house1.step()
+        
         for bg in self.getSpritesbyClass(Background):
             bg.step()
+        
 
         
 
 myapp = SantaGame()
 
 myapp.run()
+
 
 
