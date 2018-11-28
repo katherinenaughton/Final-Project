@@ -49,9 +49,10 @@ class SantaGame(App):
          #initial positions
        
         Background((0,0))
+        Background((500,0))
+        Background((,0))
         House1((0,350))
-        House1((350,350))
-        House1((500, 350))
+        
         
         
         #sleigh
