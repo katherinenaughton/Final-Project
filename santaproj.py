@@ -25,11 +25,14 @@ class Background(Sprite):
         super().__init__(Background.bg_asset, position)
         self.scale=1.4
         self.vx=1
+        #print(self.width)
     
     def step(self):
         self.x+=self.vx
         if self.x>=SantaGame.width:
             self.x-=self.width*3
+            
+    
        
 
         
@@ -49,8 +52,8 @@ class SantaGame(App):
          #initial positions
        
         Background((0,0))
-        Background((500,0))
-        Background((,0))
+        Background((910,0))
+        Background((1820,0))
         House1((0,350))
         
         
