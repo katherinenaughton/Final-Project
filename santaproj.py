@@ -12,7 +12,7 @@ class House1(Sprite):
     def __init__(self, position):
         super().__init__(House1.h1_asset, position)
         self.scale=0.3
-        self.vx=1
+        self.vx=-1.5
     
     def step(self):
         self.x+=self.vx
@@ -23,44 +23,34 @@ class Background(Sprite):
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
     def __init__(self, position):
         super().__init__(Background.bg_asset, position)
-        self.scale=1.4
-        self.vx=1
-        #print(self.width)
+        self.scale=0.78788
+        self.vx=-1
+        
+        
+        
     
     def step(self):
         self.x+=self.vx
-        if self.x>=SantaGame.width:
-            self.x-=self.width*3
-            
-    
+        if self.x<=-513:
+            self.x+=self.width*3
        
-
         
 class SantaGame(App):
     
-    
     def __init__(self):
         super().__init__()
-        '''
-        #background
-        black = Color(0, 1)
-        noline = LineStyle(0, black)
-        bg_asset = ImageAsset("images/83581c872f38421.jpg")
-        bg = Sprite(bg_asset, (0,-200))
-        bg.scale=1.4
-        '''
+       
          #initial positions
        
         Background((0,0))
-        Background((910,0))
-        Background((1820,0))
-        House1((0,350))
-        
+        Background((512,0))
+        Background((1024,0))
+        House1((350,350))
         
         
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
-        sleigh= Sprite(sleigh_asset, (350, 100))
+        sleigh= Sprite(sleigh_asset, (350, 50))
         sleigh.scale=0.3
         
         #Music:Santa Claus is Coming to Town
@@ -70,11 +60,10 @@ class SantaGame(App):
         jingle.play()
         
        
-    
+
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
             house1.step()
-        
         for bg in self.getSpritesbyClass(Background):
             bg.step()
         
@@ -83,7 +72,16 @@ class SantaGame(App):
 
 myapp = SantaGame()
 
+
 myapp.run()
+
+
+
+
+
+
+
+
 
 
 
