@@ -17,6 +17,29 @@ class House1(Sprite):
     def step(self):
         self.x+=self.vx
         
+    
+class House2(Sprite):
+    
+    h2_asset = ImageAsset("images/Christmas_Gingerbread_House_PNG_Clipart.png")
+    def __init__(self, position):
+        super().__init__(House2.h2_asset, position)
+        self.scale=0.3
+        self.vx=-1.5
+    
+    def step(self):
+        self.x+=self.vx
+        
+class House3(Sprite):
+    
+    h1_asset = ImageAsset("images/Christmas_Gingerbread_House_PNG_Clipart.png")
+    def __init__(self, position):
+        super().__init__(House3.h3_asset, position)
+        self.scale=0.3
+        self.vx=-1.5
+    
+    def step(self):
+        self.x+=self.vx
+        
 
 class Background(Sprite):
     
@@ -25,15 +48,11 @@ class Background(Sprite):
         super().__init__(Background.bg_asset, position)
         self.scale=0.78788
         self.vx=-1
-        
-        
-        
     
     def step(self):
         self.x+=self.vx
         if self.x<=-513:
             self.x+=self.width*3
-       
         
 class SantaGame(App):
     
@@ -64,24 +83,12 @@ class SantaGame(App):
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
             house1.step()
+        for house2 in self.getSpritesbyClass(House2):
+            house2.step()
+        for house3 in self.getSpritesbyClass(House3):
+            house3.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
         
-
-        
-
-myapp = SantaGame()
-
-
-myapp.run()
-
-
-
-
-
-
-
-
-
 
 
