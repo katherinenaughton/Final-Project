@@ -29,9 +29,6 @@ class House2(Sprite):
     def step(self):
         self.x+=self.vx
         
-
-        
-
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -50,7 +47,7 @@ class SantaGame(App):
     def __init__(self):
         super().__init__()
        
-         #initial positions
+        #initial positions
        
         Background((0,0))
         Background((512,0))
