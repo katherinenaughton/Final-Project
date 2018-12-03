@@ -33,10 +33,10 @@ class House2(Sprite):
         self.x+=self.vx
         if self.x<=-800:
             self.x=myapp.width
-'''
+
 class Grinch(Sprite):
     
-    g_asset = ImageAsset("images/97-975771_image-image-grinch-2018-deviantart.png")
+    g_asset = ImageAsset("images/09101e27c587d318827c600e9d09cd9c.jpg")
     def __init__(self, position):
         super().__init__(Grinch.g_asset, position)
         self.scale=0.3
@@ -46,7 +46,7 @@ class Grinch(Sprite):
         self.x+=self.vx
         if self.x<=-800:
             self.x=myapp.width
-'''   
+
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -72,7 +72,7 @@ class SantaGame(App):
         Background((1024,0))
         House1((350,350))
         House2((1200,350))
-        #Grinch((350, 350))
+        Grinch((350, 350))
        
         
         
@@ -94,8 +94,8 @@ class SantaGame(App):
             house1.step()
         for house2 in self.getSpritesbyClass(House2):
             house2.step()
-        #for g in self.getSpritesbyClass(Grinch):
-            #g.step()
+        for g in self.getSpritesbyClass(Grinch):
+            g.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
