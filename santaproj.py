@@ -1,3 +1,4 @@
+
 '''
 Katie Naughton
 Programming Final Proj
@@ -16,19 +17,36 @@ class House1(Sprite):
     
     def step(self):
         self.x+=self.vx
+        if self.x<=-800:
+            self.x=myapp.width
         
     
 class House2(Sprite):
     
-    h2_asset = ImageAsset("images/20-204688_gingerbread-house-cliparts-christmas-gingerbread-house-clipart.png")
+    h2_asset = ImageAsset("images/christmas-clipart-with-house-11.png")
     def __init__(self, position):
         super().__init__(House2.h2_asset, position)
+        self.scale=0.2
+        self.vx=-1.5
+    
+    def step(self):
+        self.x+=self.vx
+        if self.x<=-800:
+            self.x=myapp.width
+'''
+class Grinch(Sprite):
+    
+    g_asset = ImageAsset("images/97-975771_image-image-grinch-2018-deviantart.png")
+    def __init__(self, position):
+        super().__init__(Grinch.g_asset, position)
         self.scale=0.3
         self.vx=-1.5
     
     def step(self):
         self.x+=self.vx
-        
+        if self.x<=-800:
+            self.x=myapp.width
+'''   
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -53,7 +71,8 @@ class SantaGame(App):
         Background((512,0))
         Background((1024,0))
         House1((350,350))
-        House2((500,350))
+        House2((1200,350))
+        #Grinch((350, 350))
        
         
         
@@ -75,8 +94,15 @@ class SantaGame(App):
             house1.step()
         for house2 in self.getSpritesbyClass(House2):
             house2.step()
+        #for g in self.getSpritesbyClass(Grinch):
+            #g.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
+       
         
+
+
+myapp=SantaGame()
+myapp.run()
 
 
