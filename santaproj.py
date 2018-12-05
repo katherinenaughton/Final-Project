@@ -1,3 +1,8 @@
+'''
+Katie Naughton
+Programming Final Proj
+Sources:
+'''
 
 '''
 Katie Naughton
@@ -36,10 +41,10 @@ class House2(Sprite):
 
 class Grinch(Sprite):
     
-    g_asset = ImageAsset("images/09101e27c587d318827c600e9d09cd9c.jpg")
+    g_asset = ImageAsset("images/clipart975771.png")
     def __init__(self, position):
         super().__init__(Grinch.g_asset, position)
-        self.scale=0.3
+        self.scale=0.2
         self.vx=-1.5
     
     def step(self):
@@ -72,7 +77,7 @@ class SantaGame(App):
         Background((1024,0))
         House1((350,350))
         House2((1200,350))
-        Grinch((350, 350))
+        Grinch((2500, 350))
        
         
         
@@ -104,5 +109,7 @@ class SantaGame(App):
 
 myapp=SantaGame()
 myapp.run()
+
+
 
 
