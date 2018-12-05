@@ -4,11 +4,6 @@ Programming Final Proj
 Sources:
 '''
 
-'''
-Katie Naughton
-Programming Final Proj
-Sources:
-'''
 
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
@@ -52,6 +47,21 @@ class Grinch(Sprite):
         if self.x<=-800:
             self.x=myapp.width
 
+class Present1(Sprite):
+    
+    p1_asset = ImageAsset("images/clipart42143.png")
+    def __init__(self, position):
+        super().__init__(Present1.p1_asset, position)
+        self.scale=1.0
+        SantaGame.listenMouseEvent("click", self.MouseClick)
+    
+    def MouseClick (self, event):
+        self.vy+=.5
+    
+    def step(self):
+        self.y+=self.vy
+        
+
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -78,9 +88,8 @@ class SantaGame(App):
         House1((350,350))
         House2((1200,350))
         Grinch((2500, 335))
+        Present1((350,50))
        
-        
-        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
         sleigh= Sprite(sleigh_asset, (350, 50))
@@ -101,6 +110,8 @@ class SantaGame(App):
             house2.step()
         for g in self.getSpritesbyClass(Grinch):
             g.step()
+        for p1 in self.getSpritesbyClass(Present1):
+            p1.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
@@ -109,6 +120,8 @@ class SantaGame(App):
 
 myapp=SantaGame()
 myapp.run()
+
+
 
 
 
