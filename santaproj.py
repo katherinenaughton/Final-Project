@@ -44,7 +44,7 @@ class Grinch(Sprite):
     g_asset = ImageAsset("images/clipart975771.png")
     def __init__(self, position):
         super().__init__(Grinch.g_asset, position)
-        self.scale=0.2
+        self.scale=0.25
         self.vx=-1.5
     
     def step(self):
@@ -77,7 +77,7 @@ class SantaGame(App):
         Background((1024,0))
         House1((350,350))
         House2((1200,350))
-        Grinch((2500, 350))
+        Grinch((2500, 335))
        
         
         
