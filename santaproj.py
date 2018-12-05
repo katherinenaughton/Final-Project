@@ -52,12 +52,12 @@ class Present1(Sprite):
     p1_asset = ImageAsset("images/clipart42143.png")
     def __init__(self, position):
         super().__init__(Present1.p1_asset, position)
-        self.scale=1.0
+        self.scale=0.1
         self.vy=0
         SantaGame.listenMouseEvent("click", self.MouseClick)
     
     def MouseClick (self, event):
-        self.vy=.5
+        self.vy=1
     
     def step(self):
         self.y+=self.vy
