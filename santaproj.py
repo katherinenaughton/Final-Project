@@ -49,21 +49,25 @@ class Grinch(Sprite):
 
 class Present1(Sprite):
     
-    p1_asset = ImageAsset("images/clipart42143.png")
+   p1_asset = ImageAsset("images/clipart42143.png")
     def __init__(self, position):
         super().__init__(Present1.p1_asset, position)
         self.scale=0.1
         self.vy=0
-        self.visible=True
+        self.a=0
         SantaGame.listenMouseEvent("click", self.MouseClick)
+        self.visible=True
     
     def MouseClick (self, event):
-        self.vy=1
+        self.vy=0
+        self.a=0.1
     
     def step(self):
+        self.vy+=self.a
         self.y+=self.vy
-         if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)):
+        if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)):
             self.visible=False
+
 
         
 
