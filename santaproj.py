@@ -54,6 +54,7 @@ class Present1(Sprite):
         super().__init__(Present1.p1_asset, position)
         self.scale=0.1
         self.vy=0
+        self.visible=True
         SantaGame.listenMouseEvent("click", self.MouseClick)
     
     def MouseClick (self, event):
@@ -61,6 +62,9 @@ class Present1(Sprite):
     
     def step(self):
         self.y+=self.vy
+         if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)):
+            self.visible=False
+
         
 
 class Background(Sprite):
