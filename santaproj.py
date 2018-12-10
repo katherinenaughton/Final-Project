@@ -77,7 +77,7 @@ class Heart(Sprite):
         
 class Heartlist():
     
-    def __init__(self, position):
+    def __init__(self):
        
         self.heartlist=[Heart((300+(i*20),350)) for i in range(5)]
        
