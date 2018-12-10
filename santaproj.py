@@ -102,9 +102,10 @@ class SantaGame(App):
         
         #lives/hearts
         heart_asset = ImageAsset("images/heart.png")
-        heart=Sprite(heart_asset,(350, 350))
+        heart=Sprite(heart_asset,(500, 350))
+        heart.scale=1
         
-        #Music:Santa Claus is Coming to Town
+        #music
         jingle_asset = SoundAsset("sounds/Santa Claus Is Coming To Town.mp3")
         jingle=Sound(jingle_asset)
         jingle.volume=8
