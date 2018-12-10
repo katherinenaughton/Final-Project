@@ -3,8 +3,6 @@ Katie Naughton
 Programming Final Proj
 Sources:
 '''
-
-
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
 class House1(Sprite):
@@ -13,21 +11,20 @@ class House1(Sprite):
     def __init__(self, position):
         super().__init__(House1.h1_asset, position)
         self.scale=0.3
-        self.vx=-1.5
+        self.vx=-2
     
     def step(self):
         self.x+=self.vx
         if self.x<=-800:
             self.x=myapp.width
         
-    
 class House2(Sprite):
     
     h2_asset = ImageAsset("images/christmas-clipart-with-house-11.png")
     def __init__(self, position):
         super().__init__(House2.h2_asset, position)
         self.scale=0.2
-        self.vx=-1.5
+        self.vx=-2
     
     def step(self):
         self.x+=self.vx
@@ -60,18 +57,16 @@ class Present1(Sprite):
     
     def MouseClick (self, event):
         self.vy=0
-        self.a=0.1
+        self.a=0.13
     
     def step(self):
         self.vy+=self.a
         self.y+=self.vy
-        if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)):
+        if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)) or self.y>800:
             self.x=350
             self.y=50
             self.vy=0
             self.a=0
-
-        
 
 class Background(Sprite):
     
@@ -79,7 +74,7 @@ class Background(Sprite):
     def __init__(self, position):
         super().__init__(Background.bg_asset, position)
         self.scale=0.78788
-        self.vx=-1
+        self.vx=-1.5
     
     def step(self):
         self.x+=self.vx
@@ -92,7 +87,6 @@ class SantaGame(App):
         super().__init__()
        
         #initial positions
-       
         Background((0,0))
         Background((512,0))
         Background((1024,0))
@@ -103,8 +97,12 @@ class SantaGame(App):
        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
-        sleigh= Sprite(sleigh_asset, (350, 50))
+        sleigh=Sprite(sleigh_asset, (350, 50))
         sleigh.scale=0.3
+        
+        #lives/hearts
+        heart_asset = ImageAsset("images/heart.png")
+        heart=Sprite(heart_asset,(350, 350))
         
         #Music:Santa Claus is Coming to Town
         jingle_asset = SoundAsset("sounds/Santa Claus Is Coming To Town.mp3")
@@ -112,8 +110,10 @@ class SantaGame(App):
         jingle.volume=8
         jingle.play()
         
-       
-
+        #scoreboard
+        self.text=Sprite(TextAsset("GAME OVER :(", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+        self.text.visible= False
+        
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
             house1.step()
@@ -126,11 +126,10 @@ class SantaGame(App):
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
-        
-
-
 myapp=SantaGame()
 myapp.run()
+
+
 
 
 
