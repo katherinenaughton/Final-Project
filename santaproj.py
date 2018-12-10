@@ -74,12 +74,12 @@ class Heart(Sprite):
     def __init__(self, position):
         super().__init__(Heart.heart_asset, position)
         self.scale=1
-        self.vx=0
-        self.heartlist=[Heart((300+(i*20),350)) for i in range(5)]
         
+class Heartlist():
     
-    def step(self):
-        self.x+=self.vx
+    def __init__(self, position):
+       
+        self.heartlist=[Heart((300+(i*20),350)) for i in range(5)]
        
 class Background(Sprite):
     
