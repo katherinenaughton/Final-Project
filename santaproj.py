@@ -107,11 +107,11 @@ class SantaGame(App):
         House2((1200,350))
         Grinch((2500, 335))
         Present1((350,50))
-        heartlist[0]
-        heartlist[1]
-        heartlist[2]
-        heartlist[3]
-        heartlist[4]
+        Heart.heartlist[0]
+        Heart.heartlist[1]
+        Heart.heartlist[2]
+        Heart.heartlist[3]
+        Heart.heartlist[4]
        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
