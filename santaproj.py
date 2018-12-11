@@ -69,27 +69,21 @@ class Present1(Sprite):
             self.y=50
             self.vy=0
             self.a=0
+            
+        if self.visible and self.collidingWithSprites(Grinch):
+            myapp.hearts.remove heart()
     
-        h1score=[]
+        h1score=0
         if self.collidingWithSprites(House1):
-            h1score.append("a")
-        else: 
-            h1score.append("")
-        print(h1score)
-        scorea= int(len(h1score))
-        print(scorea)
+            h1score+=1
+        #print(h1score)
         
-        h2score=[]
+        h2score=0
         if self.collidingWithSprites(House2):
-            h2score.append("b")
-        else:
-            h2score.append("")
-        print(h2score)
-        scoreb= int(len(h2score))
-        print(scoreb)
-        
-        totalscore=scorea + (2*(scoreb))
-        
+            h2score+=2
+        #print(h2score)
+      
+        totalscore=h1score + h2score
         self.text=Sprite(TextAsset("Presents Delivered: ", totalscore, "!! :)", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
         self.text.visible= True
         
@@ -113,6 +107,11 @@ class Heartlist():
         if self.count >= 0:
             self.count -= 1
             self.heartlist[self.count].visible = False
+    
+    def gameover(self):
+        if self.count<=0:
+            self.text=Sprite(TextAsset("GAME OVER :(", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+            self.text.visible= True
        
         
         
