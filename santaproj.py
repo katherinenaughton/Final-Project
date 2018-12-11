@@ -107,12 +107,13 @@ class Heartlist():
         if self.count >= 0:
             self.count -= 1
             self.heartlist[self.count].visible = False
+        elif self.count<=0:
+            self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+            
+                
     
-    def gameover(self):
-        if self.count<=0:
-            self.text=Sprite(TextAsset("GAME OVER :(", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-            self.text.visible= False
-       
+
+            
         
         
        
@@ -143,7 +144,7 @@ class SantaGame(App):
         Grinch((2500, 335))
         Present1((350,50))
         
-        # hearts
+        #hearts
         self.hearts = Heartlist()
         self.hearts.removeheart()
         
@@ -158,8 +159,6 @@ class SantaGame(App):
         jingle.volume=8
         jingle.play()
         
-
-        
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
             house1.step()
@@ -169,7 +168,6 @@ class SantaGame(App):
             g.step()
         for p1 in self.getSpritesbyClass(Present1):
             p1.step()
-        
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
