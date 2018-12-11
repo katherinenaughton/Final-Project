@@ -91,7 +91,7 @@ class Present1(Sprite):
         
             
         
-            
+'''
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -110,7 +110,7 @@ class Heartlist():
         H3=heartlist[3]
         H4=heartlist[4]
         
-        
+'''        
         
         
        
@@ -140,11 +140,11 @@ class SantaGame(App):
         House2((1200,350))
         Grinch((2500, 335))
         Present1((350,50))
-        Heartlist(H)
-        Heartlist(H1)
-        Heartlist(H2)
-        Heartlist(H3)
-        Heartlist(H4)
+        #Heartlist(H)
+        #Heartlist(H1)
+        #Heartlist(H2)
+        #Heartlist(H3)
+        #Heartlist(H4)
        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
@@ -157,9 +157,7 @@ class SantaGame(App):
         jingle.volume=8
         jingle.play()
         
-        #scoreboard
-        self.text=Sprite(TextAsset("GAME OVER :(", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-        self.text.visible= False
+
         
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
@@ -170,10 +168,10 @@ class SantaGame(App):
             g.step()
         for p1 in self.getSpritesbyClass(Present1):
             p1.step()
-        for heart in self.getSpritesbyClass(Heart):
-            heart.step()
-        for heartl in self.getSpritesbyClass(Heartlist):
-            heartl.step()
+        #for heart in self.getSpritesbyClass(Heart):
+            #heart.step()
+        #for heartl in self.getSpritesbyClass(Heartlist):
+            #heartl.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
