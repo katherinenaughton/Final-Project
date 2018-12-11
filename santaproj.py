@@ -84,8 +84,10 @@ class Present1(Sprite):
         scoreb= len(h2score)
         print(scoreb)
         
+        totalscore=scorea + (2*(scoreb))
         
-        totalscore=scorea + (2*score b)
+        self.text=Sprite(TextAsset("Presents Delivered: ", totalscore, "!! :)", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+        self.text.visible= True
         
             
         
