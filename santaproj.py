@@ -69,19 +69,23 @@ class Present1(Sprite):
             self.y=50
             self.vy=0
             self.a=0
-        ''' 
+    
         h1score=[]
         if self.collidingWithSprites(House1):
             h1score.append("a")
+        else: 
+            h1score.append("")
         print(h1score)
-        scorea= len(h1score)
+        scorea= int(len(h1score))
         print(scorea)
         
         h2score=[]
         if self.collidingWithSprites(House2):
             h2score.append("b")
+        else:
+            h2score.append("")
         print(h2score)
-        scoreb= len(h2score)
+        scoreb= int(len(h2score))
         print(scoreb)
         
         totalscore=scorea + (2*(scoreb))
@@ -102,15 +106,14 @@ class Heart(Sprite):
 class Heartlist():
     
     def __init__(self):
-       
-        heartlist=[Heart((300+(i*20),350)) for i in range(5)]
-        H=heartlist[0]
-        H1=heartlist[1]
-        H2=heartlist[2]
-        H3=heartlist[3]
-        H4=heartlist[4]
+        self.heartlist=[Heart((300+(i*20),350)) for i in range(5)]
+        self.count = 5
         
-'''        
+    def removeheart(self):
+        if self.count >= 0:
+            self.count -= 1
+            self.heartlist[self.count].visible = False
+       
         
         
        
@@ -140,12 +143,11 @@ class SantaGame(App):
         House2((1200,350))
         Grinch((2500, 335))
         Present1((350,50))
-        #Heartlist(H)
-        #Heartlist(H1)
-        #Heartlist(H2)
-        #Heartlist(H3)
-        #Heartlist(H4)
-       
+        
+        # hearts
+        self.hearts = Heartlist()
+        self.hearts.removeheart()
+        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
         sleigh=Sprite(sleigh_asset, (350, 50))
@@ -168,10 +170,7 @@ class SantaGame(App):
             g.step()
         for p1 in self.getSpritesbyClass(Present1):
             p1.step()
-        #for heart in self.getSpritesbyClass(Heart):
-            #heart.step()
-        #for heartl in self.getSpritesbyClass(Heartlist):
-            #heartl.step()
+        
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
