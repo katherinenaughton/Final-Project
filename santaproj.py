@@ -79,7 +79,16 @@ class Heartlist():
     
     def __init__(self):
        
-        self.heartlist=[Heart((300+(i*20),350)) for i in range(5)]
+        heartlist=[Heart((300+(i*20),350)) for i in range(5)]
+        H=heartlist[0]
+        H1=heartlist[1]
+        H2=heartlist[2]
+        H3=heartlist[3]
+        H4=heartlist[4]
+        
+        
+        
+        
        
 class Background(Sprite):
     
@@ -107,23 +116,16 @@ class SantaGame(App):
         House2((1200,350))
         Grinch((2500, 335))
         Present1((350,50))
-        Heart.heartlist[0]
-        Heart.heartlist[1]
-        Heart.heartlist[2]
-        Heart.heartlist[3]
-        Heart.heartlist[4]
+        Heartlist(H)
+        Heartlist(H1)
+        Heartlist(H2)
+        Heartlist(H3)
+        Heartlist(H4)
        
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
         sleigh=Sprite(sleigh_asset, (350, 50))
         sleigh.scale=0.3
-        
-        #lives/hearts
-        heart_asset = ImageAsset("images/heart.png")
-        heart=Sprite(heart_asset,(500, 350))
-        heart.scale=1
-        
-        houselist=[House(i) for i in range(3)]
         
         #music
         jingle_asset = SoundAsset("sounds/Santa Claus Is Coming To Town.mp3")
@@ -146,6 +148,8 @@ class SantaGame(App):
             p1.step()
         for heart in self.getSpritesbyClass(Heart):
             heart.step()
+        for heartl in self.getSpritesbyClass(Heartlist):
+            heartl.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
