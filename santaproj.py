@@ -69,7 +69,7 @@ class Present1(Sprite):
             self.y=50
             self.vy=0
             self.a=0
-            
+        ''' 
         h1score=[]
         if self.collidingWithSprites(House1):
             h1score.append("a")
@@ -91,7 +91,7 @@ class Present1(Sprite):
         
             
         
-'''
+
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
