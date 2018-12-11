@@ -70,9 +70,9 @@ class Present1(Sprite):
             self.vy=0
             self.a=0
             
-        if self.visible and self.collidingWithSprites(Grinch):
-            myapp.hearts.removeheart()
-    
+        #if self.visible and self.collidingWithSprites(Grinch):
+            #myapp.hearts.removeheart()
+    '''
         h1score=0
         if self.collidingWithSprites(House1):
             h1score+=1
@@ -87,9 +87,6 @@ class Present1(Sprite):
         self.text=Sprite(TextAsset("Presents Delivered: ", totalscore, "!! :)", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
         self.text.visible= True
         
-            
-        
-
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -109,14 +106,7 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-            
-                
-    
-
-            
-        
-        
-       
+  '''          
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -145,8 +135,8 @@ class SantaGame(App):
         Present1((350,50))
         
         #hearts
-        self.hearts = Heartlist()
-        self.hearts.removeheart()
+        #self.hearts = Heartlist()
+        #self.hearts.removeheart()
         
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
@@ -173,6 +163,8 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+
 
 
 
