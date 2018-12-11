@@ -2,6 +2,8 @@
 Katie Naughton
 Programming Final Proj
 Sources:
+
+QUESTIONS: lives/hearts how to access the list when creating positions?
 '''
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
@@ -67,6 +69,26 @@ class Present1(Sprite):
             self.y=50
             self.vy=0
             self.a=0
+            
+        h1score=[]
+        if self.collidingWithSprites(House1):
+            h1score.append("a")
+        print(h1score)
+        scorea= len(h1score)
+        print(scorea)
+        
+        h2score=[]
+        if self.collidingWithSprites(House2):
+            h2score.append("b")
+        print(h2score)
+        scoreb= len(h2score)
+        print(scoreb)
+        
+        
+        totalscore=scorea + (2*score b)
+        
+            
+        
             
 class Heart(Sprite):
     
