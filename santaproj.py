@@ -56,16 +56,12 @@ class Present1(Sprite):
         self.a=0
         SantaGame.listenMouseEvent("click", self.MouseClick)
         self.visible=True
-        h1score=0
-        h2score=0
+      
     
     def MouseClick (self, event):
         self.vy=0
         self.a=0.13
-    
-    def scoreboard(self):
-        
-    
+
     def step(self):
         self.vy+=self.a
         self.y+=self.vy
@@ -79,11 +75,13 @@ class Present1(Sprite):
         if self.visible and self.collidingWithSprites(Grinch):
             myapp.hearts.removeheart()
     
+        h1score=0
         if self.visible and self.collidingWithSprites(House1):
             h1score+=1
             print("hey")
         print(h1score)
         
+        h2score=0
         if self.visible and self.collidingWithSprites(House2):
             h2score+=2
             print("hi")
@@ -168,15 +166,3 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
-
-
-
-
-
-
-
-
-
-
-
-
