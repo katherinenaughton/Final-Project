@@ -56,14 +56,20 @@ class Present1(Sprite):
         self.a=0
         SantaGame.listenMouseEvent("click", self.MouseClick)
         self.visible=True
+        h1score=0
+        h2score=0
     
     def MouseClick (self, event):
         self.vy=0
         self.a=0.13
     
+    def scoreboard(self):
+        
+    
     def step(self):
         self.vy+=self.a
         self.y+=self.vy
+        
         if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)) or self.y>800:
             self.x=350
             self.y=50
@@ -73,19 +79,18 @@ class Present1(Sprite):
         if self.visible and self.collidingWithSprites(Grinch):
             myapp.hearts.removeheart()
     
-        h1score=0
         if self.visible and self.collidingWithSprites(House1):
             h1score+=1
+            print("hey")
         print(h1score)
         
-        h2score=0
         if self.visible and self.collidingWithSprites(House2):
             h2score+=2
+            print("hi")
         print(h2score)
       
-        totalscore=h1score + h2score
-        self.text=Sprite(TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-        self.text.visible= True
+        totalscore= h1score + h2score
+        self.text=Sprite(TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1)), (0,0))
         
 class Heart(Sprite):
     
