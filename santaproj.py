@@ -70,9 +70,9 @@ class Present1(Sprite):
             self.vy=0
             self.a=0
             
-        #if self.visible and self.collidingWithSprites(Grinch):
-            #myapp.hearts.removeheart()
-    '''
+        if self.visible and self.collidingWithSprites(Grinch):
+            myapp.hearts.removeheart()
+    
         h1score=0
         if self.collidingWithSprites(House1):
             h1score+=1
@@ -84,7 +84,7 @@ class Present1(Sprite):
         #print(h2score)
       
         totalscore=h1score + h2score
-        self.text=Sprite(TextAsset("Presents Delivered: ", totalscore, "!! :)", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+        self.text=Sprite(TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
         self.text.visible= True
         
 class Heart(Sprite):
@@ -106,7 +106,7 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-  '''          
+           
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
