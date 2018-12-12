@@ -74,14 +74,14 @@ class Present1(Sprite):
             myapp.hearts.removeheart()
     
         h1score=0
-        if self.collidingWithSprites(House1):
+        if self.visible and self.collidingWithSprites(House1):
             h1score+=1
-        #print(h1score)
+        print(h1score)
         
         h2score=0
-        if self.collidingWithSprites(House2):
+        if self.visible and self.collidingWithSprites(House2):
             h2score+=2
-        #print(h2score)
+        print(h2score)
       
         totalscore=h1score + h2score
         self.text=Sprite(TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
@@ -129,8 +129,8 @@ class SantaGame(App):
         Background((0,0))
         Background((512,0))
         Background((1024,0))
-        House1((350,350))
-        House2((1200,350))
+        House1((500,350))
+        House2((900,350))
         Grinch((2500, 335))
         Present1((350,50))
         
