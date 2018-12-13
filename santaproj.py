@@ -80,7 +80,7 @@ class Present1(Sprite):
 class Score(Sprite):
    
     def __init__(self, newscore):
-        s_asset=TextAsset(str(newscore), ("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1)), (0,0))
+        s_asset=TextAsset(str(newscore), ("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))), (0,0))
         super().__init__(Score.s_asset, position)
         
         
