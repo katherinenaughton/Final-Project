@@ -67,7 +67,6 @@ class Present1(Sprite):
         self.h1collision=self.collidingWithSprites(House1)
         self.h2collision=self.collidingWithSprites(House2)
         
-        
         if self.visible and (h1collision or h2collision) or self.y>800:
             self.x=350
             self.y=50
@@ -79,9 +78,9 @@ class Present1(Sprite):
     
         
 class Score(Sprite):
-    
-    s_asset = TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1)), (0,0))
-    def __init__(self, position):
+   
+    def __init__(self, newscore):
+        s_asset=TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1)), (0,0))
         super().__init__(Score.s_asset, position)
         
         
@@ -160,6 +159,11 @@ class SantaGame(App):
         jingle=Sound(jingle_asset)
         jingle.volume=8
         jingle.play()
+        
+        #score
+        score=Score(0)
+        self.score.destroy()
+        self.score(newscore)
         
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
