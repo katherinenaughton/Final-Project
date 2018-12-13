@@ -2,6 +2,7 @@
 Katie Naughton
 Programming Final Proj
 Sources:
+check collisions, change score, then call the change score def 
 '''
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
