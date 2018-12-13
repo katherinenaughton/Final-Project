@@ -78,10 +78,8 @@ class Present1(Sprite):
     
         
 class Score(Sprite):
-   
-    def __init__(self, newscore):
-        s_asset=TextAsset(str(newscore), ("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))), (0,0))
-        super().__init__(Score.s_asset, position)
+    def __init__(self):
+        super().__init__()
         
         h1score=0
         if myapp.p1.visible and myapp.p1.h1collision:
@@ -93,7 +91,9 @@ class Score(Sprite):
       
         totalscore= h1score + h2score
         
+        s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         
+'''        
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -113,7 +113,7 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-           
+ '''         
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -157,9 +157,11 @@ class SantaGame(App):
         jingle.play()
         
         #score
+        '''
         score=Score(0)
         self.score.destroy()
         self.score(newscore)
+        '''
         
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
