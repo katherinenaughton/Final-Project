@@ -75,7 +75,23 @@ class Present1(Sprite):
             
         if self.visible and self.collidingWithSprites(Grinch):
             myapp.hearts.removeheart()
-    
+            
+class Score(Sprite):
+    def __init__(self):
+    pass
+
+    # Sprite(TextAsset(equation, width=100, align='center',style='12px Arial', fill=black),(5,(len(self.functions)-1)*frameHeight/20+2))
+    scores = []
+    def scoreChange():
+        shift = 0
+        for i in range(len(Score.scores)):
+            i = i - shift
+            Score.scores[i].destroy()
+            del Score.scores[i]
+            shift += 1
+        s_asset=TextAsset(("Your score is {0}").format(SantaGame.score), width=500, align='center',style='12px Arial', fill=Color(0x000000,1))
+        Score.scores.append(Sprite(s_asset, (0,0)))
+ 
   
 class Score(Sprite):
     def __init__(self):
