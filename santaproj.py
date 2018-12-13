@@ -76,7 +76,7 @@ class Present1(Sprite):
         if self.visible and self.collidingWithSprites(Grinch):
             myapp.hearts.removeheart()
     
-        
+  
 class Score(Sprite):
     def __init__(self):
         super().__init__()
@@ -93,7 +93,7 @@ class Score(Sprite):
         
         s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         
-'''        
+        
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -113,7 +113,7 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
- '''         
+       
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
