@@ -93,8 +93,6 @@ class Score(Sprite):
             h2score+=2
       
         totalscore= h1score + h2score
-
-        Sprite.destroy()
         
         
 class Heart(Sprite):
