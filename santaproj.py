@@ -83,7 +83,6 @@ class Score(Sprite):
         s_asset=TextAsset(str(newscore), ("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))), (0,0))
         super().__init__(Score.s_asset, position)
         
-        
         h1score=0
         if myapp.p1.visible and myapp.p1.h1collision:
             h1score+=1
