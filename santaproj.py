@@ -2,8 +2,6 @@
 Katie Naughton
 Programming Final Proj
 Sources:
-
-QUESTIONS: lives/hearts how to access the list when creating positions?
 '''
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
@@ -57,16 +55,20 @@ class Present1(Sprite):
         SantaGame.listenMouseEvent("click", self.MouseClick)
         self.visible=True
       
-    
     def MouseClick (self, event):
         self.vy=0
         self.a=0.13
+    
 
     def step(self):
         self.vy+=self.a
         self.y+=self.vy
         
-        if self.visible and (self.collidingWithSprites(House1) or self.collidingWithSprites(House2)) or self.y>800:
+        self.h1collision=self.collidingWithSprites(House1)
+        self.h2collision=self.collidingWithSprites(House2)
+        
+        
+        if self.visible and (h1collision or h2collision) or self.y>800:
             self.x=350
             self.y=50
             self.vy=0
@@ -75,20 +77,27 @@ class Present1(Sprite):
         if self.visible and self.collidingWithSprites(Grinch):
             myapp.hearts.removeheart()
     
+        
+class Score(Sprite):
+    
+    s_asset = TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1)), (0,0))
+    def __init__(self, position):
+        super().__init__(Score.s_asset, position)
+        
+        
         h1score=0
-        if self.visible and self.collidingWithSprites(House1):
+        if myapp.p1.visible and myapp.p1.h1collision:
             h1score+=1
-            print("hey")
-        print(h1score)
+          
         
         h2score=0
-        if self.visible and self.collidingWithSprites(House2):
+        if myapp.p1.visible and myapp.p1.h2collision:
             h2score+=2
-            print("hi")
-        print(h2score)
       
         totalscore= h1score + h2score
-        self.text=Sprite(TextAsset("Presents Delivered: {0}!! :)".format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1)), (0,0))
+
+        Sprite.destroy()
+        
         
 class Heart(Sprite):
     
@@ -135,7 +144,7 @@ class SantaGame(App):
         House1((500,350))
         House2((900,350))
         Grinch((2500, 335))
-        Present1((350,50))
+        self.p1=Present1((350,50))
         
         #hearts
         #self.hearts = Heartlist()
@@ -161,6 +170,8 @@ class SantaGame(App):
             g.step()
         for p1 in self.getSpritesbyClass(Present1):
             p1.step()
+        for score in self.getSpritesbyClass(Score):
+            score.step()
         for bg in self.getSpritesbyClass(Background):
             bg.step()
        
