@@ -1,4 +1,4 @@
-'''
+ '''
 Katie Naughton
 Programming Final Proj
 Sources:
@@ -65,17 +65,24 @@ class Present1(Sprite):
         self.vy+=self.a
         self.y+=self.vy
         
-        self.h1collision=self.collidingWithSprites(House1)
-        self.h2collision=self.collidingWithSprites(House2)
+        self.collision=self.collidingWithSprites(House1) or self.collidingWithSprites(House2)
         
-        if self.visible and (h1collision or h2collision) or self.y>800:
+        if self.visible and (self.collision) or self.y>800:
             self.x=350
             self.y=50
             self.vy=0
             self.a=0
             
-        if self.visible and self.collidingWithSprites(Grinch):
-            myapp.hearts.removeheart()
+        totalscore=0
+        s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
+        if self.visible and self.collision: 
+            totalscore+=1
+            Sprite.destroy()
+            Score.scoreChange()
+            
+            
+        #if self.visible and self.collidingWithSprites(Grinch):
+            #myapp.hearts.removeheart()
             
 class Score(Sprite):
     def __init__(self):
@@ -98,19 +105,9 @@ class Score(Sprite):
     def __init__(self):
         super().__init__()
         
-        h1score=0
-        if myapp.p1.visible and myapp.p1.h1collision:
-            h1score+=1
-          
-        h2score=0
-        if myapp.p1.visible and myapp.p1.h2collision:
-            h2score+=2
-      
-        totalscore= h1score + h2score
-        
-        s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         
         
+    '''   
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -130,6 +127,7 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+       '''
        
 class Background(Sprite):
     
@@ -174,11 +172,7 @@ class SantaGame(App):
         jingle.play()
         
         #score
-        '''
-        score=Score(0)
-        self.score.destroy()
-        self.score(newscore)
-        '''
+      
         
     def step(self):
         for house1 in self.getSpritesbyClass(House1):
@@ -196,3 +190,5 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+
