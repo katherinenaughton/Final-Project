@@ -1,9 +1,10 @@
  '''
 Katie Naughton
 Programming Final Proj
-Sources:
+Sources
 check collisions, change score, then call the change score def 
 '''
+
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
 class House1(Sprite):
@@ -55,6 +56,7 @@ class Present1(Sprite):
         self.a=0
         SantaGame.listenMouseEvent("click", self.MouseClick)
         self.visible=True
+    totalscore=0
       
     def MouseClick (self, event):
         self.vy=0
@@ -73,37 +75,39 @@ class Present1(Sprite):
             self.vy=0
             self.a=0
             
-        totalscore=0
+            
+    
         #s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         if self.visible and self.collision: 
-            totalscore+=1
-            Score.scoreChange()
+            self.totalscore+=1
+            #print(self.totalscore)
+            Score.scoreChange(self.totalscore)
+
             
             
         #if self.visible and self.collidingWithSprites(Grinch):
             #myapp.hearts.removeheart()
             
 class Score(Sprite):
-    def __init__(self):
-    pass
-
-    # Sprite(TextAsset(equation, width=100, align='center',style='12px Arial', fill=black),(5,(len(self.functions)-1)*frameHeight/20+2))
+    
     scores = []
-    def scoreChange():
+    def scoreChange(totalscore):
+        #print(Present1.totalscore)
         shift = 0
         for i in range(len(Score.scores)):
             i = i - shift
             Score.scores[i].destroy()
             del Score.scores[i]
             shift += 1
-        s_asset=TextAsset(("Your score is {0}").format(Present1.totalscore), width=500, align='center',style='12px Arial', fill=Color(0x000000,1))
+        s_asset=TextAsset(("Presents Delivered: {0}!!").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         Score.scores.append(Sprite(s_asset, (0,0)))
  
   
 
         
         
-    '''   
+
+'''
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -123,8 +127,8 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-       '''
-       
+'''
+
 class Background(Sprite):
     
     bg_asset = ImageAsset("images/83581c872f38421.jpg")
@@ -186,5 +190,7 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+
 
 
