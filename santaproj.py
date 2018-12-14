@@ -77,7 +77,6 @@ class Present1(Sprite):
         s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         if self.visible and self.collision: 
             totalscore+=1
-            Sprite.destroy()
             Score.scoreChange()
             
             
@@ -97,14 +96,11 @@ class Score(Sprite):
             Score.scores[i].destroy()
             del Score.scores[i]
             shift += 1
-        s_asset=TextAsset(("Your score is {0}").format(SantaGame.score), width=500, align='center',style='12px Arial', fill=Color(0x000000,1))
+        s_asset=TextAsset(("Your score is {0}").format(Present1.totalscore), width=500, align='center',style='12px Arial', fill=Color(0x000000,1))
         Score.scores.append(Sprite(s_asset, (0,0)))
  
   
-class Score(Sprite):
-    def __init__(self):
-        super().__init__()
-        
+
         
         
     '''   
@@ -171,7 +167,7 @@ class SantaGame(App):
         jingle.volume=8
         jingle.play()
         
-        #score
+    
       
         
     def step(self):
