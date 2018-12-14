@@ -100,7 +100,7 @@ class Score(Sprite):
             Score.scores[i].destroy()
             del Score.scores[i]
             shift += 1
-        s_asset=TextAsset(("Presents Delivered: {0}!!").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
+        s_asset=TextAsset(("Presents Delivered: {0}!!").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff222,1))
         Score.scores.append(Sprite(s_asset, (0,0)))
  
 class Heart(Sprite):
@@ -108,12 +108,12 @@ class Heart(Sprite):
     heart_asset = ImageAsset("images/heart.png")
     def __init__(self, position):
         super().__init__(Heart.heart_asset, position)
-        self.scale=1
+        self.scale=0.1
         
 class Heartlist():
     
     def __init__(self):
-        self.heartlist=[Heart((300+(i*20),350)) for i in range(5)]
+        self.heartlist=[Heart((0+(i*40),50)) for i in range(5)]
         self.count = 5
         
     def removeheart(self):
@@ -150,7 +150,6 @@ class SantaGame(App):
         House2((900,350))
         Grinch((2500, 335))
         self.p1=Present1((350,50))
-        Heart((20,20))
         Heartlist()
         
       
@@ -185,6 +184,8 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+
 
 
 
