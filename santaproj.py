@@ -1,4 +1,4 @@
- '''
+'''
 Katie Naughton
 Programming Final Proj
 Sources
@@ -39,12 +39,13 @@ class Grinch(Sprite):
     def __init__(self, position):
         super().__init__(Grinch.g_asset, position)
         self.scale=0.25
-        self.vx=-1.5
+        self.vx=-2
     
     def step(self):
         self.x+=self.vx
         if self.x<=-800:
             self.x=myapp.width
+        
 
 class Present1(Sprite):
     
@@ -68,8 +69,9 @@ class Present1(Sprite):
         self.y+=self.vy
         
         self.collision=self.collidingWithSprites(House1) or self.collidingWithSprites(House2)
+        self.gcollision=self.collidingWithSprites(Grinch)
         
-        if self.visible and (self.collision) or self.y>800:
+        if self.visible and (self.collision or self.gcollision) or self.y>800:
             self.x=350
             self.y=50
             self.vy=0
@@ -82,11 +84,10 @@ class Present1(Sprite):
             self.totalscore+=1
             #print(self.totalscore)
             Score.scoreChange(self.totalscore)
-
-            
-            
-        #if self.visible and self.collidingWithSprites(Grinch):
-            #myapp.hearts.removeheart()
+        
+        
+        if self.visible and self.gcollision:
+            Hearts.hearts.removeheart()
             
 class Score(Sprite):
     
@@ -102,12 +103,6 @@ class Score(Sprite):
         s_asset=TextAsset(("Presents Delivered: {0}!!").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         Score.scores.append(Sprite(s_asset, (0,0)))
  
-  
-
-        
-        
-
-'''
 class Heart(Sprite):
     
     heart_asset = ImageAsset("images/heart.png")
@@ -127,7 +122,7 @@ class Heartlist():
             self.heartlist[self.count].visible = False
         elif self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
-'''
+
 
 class Background(Sprite):
     
@@ -155,10 +150,10 @@ class SantaGame(App):
         House2((900,350))
         Grinch((2500, 335))
         self.p1=Present1((350,50))
+        Heart((20,20))
+        Heartlist()
         
-        #hearts
-        #self.hearts = Heartlist()
-        #self.hearts.removeheart()
+      
         
         #sleigh
         sleigh_asset=ImageAsset("images/santa_sleigh_PNG72.png")
