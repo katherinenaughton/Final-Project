@@ -74,7 +74,7 @@ class Present1(Sprite):
             self.a=0
             
         totalscore=0
-        s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
+        #s_asset=TextAsset(("Presents Delivered: {0}!! :)").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff2222,1))
         if self.visible and self.collision: 
             totalscore+=1
             Score.scoreChange()
