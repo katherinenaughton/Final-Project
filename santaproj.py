@@ -307,14 +307,15 @@ class Heart(Sprite):
 class Heartlist():
     
     def __init__(self):
-        self.count = 5
-        self.heartlist=[Heart((0+(i*40),50)) for i in range(5)]
+        self.count = 1
+        self.heartlist=[Heart((0+(i*40),50)) for i in range(1)]
     
     def removeheart(self):
         if self.count >= 0:
             self.count -= 1
             self.heartlist[self.count].destroy()
-        elif self.count<=0:
+        if self.count<=0:
+            print("hi")
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
 
 
@@ -378,6 +379,9 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+
+
 
 
 
