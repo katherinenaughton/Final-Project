@@ -120,7 +120,7 @@ class Heartlist():
         if self.count >= 0:
             self.count -= 1
             self.heartlist[self.count].destroy()
-        elif self.count<=0:
+        if self.count<=0:
             self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
 
 
