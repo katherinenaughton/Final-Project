@@ -2,7 +2,6 @@
 Katie Naughton
 Programming Final Proj
 Sources
-check collisions, change score, then call the change score def 
 '''
 
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
@@ -113,15 +112,15 @@ class Heart(Sprite):
 class Heartlist():
     
     def __init__(self):
-        self.count = 5
-        self.heartlist=[Heart((0+(i*40),50)) for i in range(5)]
+        self.count = 3
+        self.heartlist=[Heart((0+(i*40),50)) for i in range(3)]
     
     def removeheart(self):
         if self.count >= 0:
             self.count -= 1
             self.heartlist[self.count].destroy()
         if self.count<=0:
-            self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='60px Arial', fill=Color(0xff2222,1)), (300,350))
+            self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=500, align='center',style='20px Arial', fill=Color(0xff2222,1)), (300,250))
 
 
 class Background(Sprite):
@@ -197,7 +196,7 @@ Katie Naughton
 Programming Final Proj
 Sources
 check collisions, change score, then call the change score def 
-'''
+
 
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
@@ -379,6 +378,8 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+'''
 
 
 
