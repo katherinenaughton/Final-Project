@@ -1,7 +1,7 @@
 '''
 Katie Naughton
 Programming Final Proj
-Sources
+Sources: Noah, Mr. Dennison
 '''
 
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
@@ -12,7 +12,7 @@ class House1(Sprite):
     def __init__(self, position):
         super().__init__(House1.h1_asset, position)
         self.scale=0.3
-        self.vx=-4
+        self.vx=-6
     
     def step(self):
         self.x+=self.vx
@@ -25,7 +25,7 @@ class House2(Sprite):
     def __init__(self, position):
         super().__init__(House2.h2_asset, position)
         self.scale=0.2
-        self.vx=-4
+        self.vx=-6
     
     def step(self):
         self.x+=self.vx
@@ -38,7 +38,7 @@ class Grinch(Sprite):
     def __init__(self, position):
         super().__init__(Grinch.g_asset, position)
         self.scale=0.25
-        self.vx=-4
+        self.vx=-6
     
     def step(self):
         self.x+=self.vx
@@ -60,7 +60,7 @@ class Present1(Sprite):
       
     def MouseClick (self, event):
         self.vy=0
-        self.a=0.5
+        self.a=0.9
     
 
     def step(self):
@@ -129,7 +129,7 @@ class Background(Sprite):
     def __init__(self, position):
         super().__init__(Background.bg_asset, position)
         self.scale=0.78788
-        self.vx=-3.5
+        self.vx=-5.5
     
     def step(self):
         self.x+=self.vx
@@ -147,7 +147,7 @@ class SantaGame(App):
         Background((1024,0))
         House1((500,350))
         House2((900,350))
-        Grinch((2500, 335))
+        Grinch((1000, 335))
         self.p1=Present1((350,50))
         self.Hlist = Heartlist()
         
