@@ -120,7 +120,7 @@ class Heartlist():
             self.count -= 1
             self.heartlist[self.count].destroy()
         if self.count<=0:
-            self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (100,250))
+            self.text=Sprite(TextAsset("GAME OVER:( your heart shrunk two sizes too small!", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (100,150))
             myapp.gameover=True
 
 class Background(Sprite):
@@ -147,9 +147,9 @@ class SantaGame(App):
         Background((0,0))
         Background((512,0))
         Background((1024,0))
-        House1((500,350))
+        House1((300,350))
         House2((900,350))
-        Grinch((1050, 335))
+        Grinch((1000, 335))
         self.p1=Present1((350,50))
         self.Hlist = Heartlist()
         
