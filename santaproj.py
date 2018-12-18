@@ -150,6 +150,8 @@ class SantaGame(App):
         House1((300,350))
         House2((900,350))
         Grinch((1000, 335))
+        Grinch((100,335))
+        Grinch((1500,335))
         self.p1=Present1((350,50))
         self.Hlist = Heartlist()
         
