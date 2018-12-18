@@ -101,6 +101,7 @@ class Score(Sprite):
             shift += 1
         s_asset=TextAsset(("Presents Delivered: {0}!!").format(totalscore), width=500, align='left',style='30px Arial', fill=Color(0xff222,1))
         Score.scores.append(Sprite(s_asset, (0,0)))
+        
  
 class Heart(Sprite):
     
