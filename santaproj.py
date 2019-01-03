@@ -3,7 +3,7 @@ Katie Naughton
 Programming Final Proj
 Sources: Noah, Mr. Dennison
 '''
-
+print( "Click the mouse to drop a present! Try to hit the presents! Don't hit the Grinchs!")
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
 class House1(Sprite):
