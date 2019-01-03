@@ -5,6 +5,10 @@ Sources: Noah, Mr. Dennison
 '''
 print( "Click the mouse to drop a present! Try to drop the presents on the houses! Don't hit the Grinchs!")
 from ggame import App, SoundAsset, Sound, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
+blue = Color(0x0000ff, 1.0)
+black = Color(0x000000, 1.0)
+white = Color(0xf8f8ff, 1.0)
+thinline=LineStyle(1, black)
 
 class House1(Sprite):
     
@@ -144,6 +148,14 @@ class SantaGame(App):
         
         self.gameover=False
        
+       
+        rectangle=RectangleAsset (1000, 1000, thinline, blue)
+        rectangle1=RectangleAsset (1000, 1000, thinline, white)
+        
+        
+        Sprite(rectangle, (0, 0))
+        Sprite(rectangle1, (0,350))
+        
         #initial positions
         Background((0,0))
         Background((512,0))
@@ -190,6 +202,13 @@ class SantaGame(App):
        
 myapp=SantaGame()
 myapp.run()
+
+
+
+
+
+
+
 
 
 
